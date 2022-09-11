@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+10-sep-2022
+Get weather API
+    api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+Make Reusable city weather card
+Use block to display these cities
