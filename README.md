@@ -19,4 +19,13 @@ samples, guidance on mobile development, and a full API reference.
 Get weather API
     api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 Make Reusable city weather card
-Use block to display these cities
+Use bloc to display these cities
+
+13-sep-2022
+Incorporate firebase
+    -Add floating button:)
+    -Launch an input alert box:)
+    -Enter city (Save to firebase):)
+    -Get city weather and time
+Add notifications
+Add Settings.

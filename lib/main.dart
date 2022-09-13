@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loop/bloc/loop_bloc.dart';
-import 'package:loop/screens/home_page.dart';
+import 'package:loop/bloc/weather_bloc.dart';
+import 'package:loop/screens/home/home_page.dart';
+import 'package:loop/screens/weather/weather_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async {
+  //Enable calling of native code
+  WidgetsFlutterBinding.ensureInitialized();
+  //Initialize firebase which calls native code
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -14,14 +21,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Use MultiBlocProvider to add Bloc functionality to entire app
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      home: BlocProvider<LoopBloc>(
-        create: (context) => LoopBloc(),
-        child: MyHomePage(title: 'Loop'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) => WeatherBloc()..add(const LoadCityWeather())),
+        BlocProvider(create: (context) => LoopBloc())
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        home: const HomePage(title: 'In the loop'),
       ),
     );
   }
