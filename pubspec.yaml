@@ -43,6 +43,8 @@ dependencies:
   http: ^0.13.5
   #Incorporate firebase
   cloud_firestore: ^3.4.7
+  #Local Push notifications
+  flutter_local_notifications: ^9.9.1
 
 dev_dependencies:
   flutter_test:

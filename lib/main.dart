@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loop/bloc/loop_bloc.dart';
 import 'package:loop/bloc/weather_bloc.dart';
 import 'package:loop/screens/home/home_page.dart';
-import 'package:loop/screens/weather/weather_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {

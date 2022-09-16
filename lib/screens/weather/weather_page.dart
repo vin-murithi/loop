@@ -4,6 +4,7 @@ import 'package:loop/bloc/loop_bloc.dart';
 import 'package:loop/bloc/weather_bloc.dart';
 import 'package:loop/components/city_weather_card.dart';
 import 'package:loop/components/text_input_alert.dart';
+import 'package:loop/services/local_notifications.dart';
 import 'package:loop/services/weather_data.dart';
 
 class WeatherPage extends StatefulWidget {
@@ -33,6 +34,10 @@ class _WeatherPageState extends State<WeatherPage> {
       builder: (context, state) {
         if (state is CityNameAdded) {
           weatherBloc.add(const LoadCityWeather());
+          LocalNotifications().showLocalNotification(
+            title: 'Success',
+            body: 'City added',
+          );
         }
         if (state is WeatherLoading) {
           return const Center(
@@ -88,7 +93,7 @@ class _WeatherPageState extends State<WeatherPage> {
           );
         } else {
           return const Center(
-            child: Text('Error Occured'),
+            child: CircularProgressIndicator(),
           );
         }
       },
